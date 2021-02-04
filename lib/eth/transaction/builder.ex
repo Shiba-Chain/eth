@@ -74,7 +74,6 @@ defmodule ETH.Transaction.Builder do
         else: data
 
     nonce = Keyword.get(params, :nonce, generate_nonce(Keyword.get(params, :from)))
-    chain_id = Keyword.get(params, :chain_id, 3)
 
     gas_limit =
       Keyword.get(
@@ -84,8 +83,7 @@ defmodule ETH.Transaction.Builder do
           to: to,
           value: value,
           data: target_data,
-          nonce: nonce,
-          chain_id: chain_id
+          nonce: nonce
         })
       )
 
@@ -111,7 +109,6 @@ defmodule ETH.Transaction.Builder do
         else: data
 
     nonce = Map.get(params, :nonce, generate_nonce(Map.get(params, :from)))
-    chain_id = Map.get(params, :chain_id, 3)
 
     gas_limit =
       Map.get(
@@ -121,8 +118,7 @@ defmodule ETH.Transaction.Builder do
           to: to,
           value: value,
           data: target_data,
-          nonce: nonce,
-          chain_id: chain_id
+          nonce: nonce
         })
       )
 
